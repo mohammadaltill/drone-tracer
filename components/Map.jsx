@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { BiSolidUpArrow } from "react-icons/bi";
 
-function Map({ drones , selectedDrone, onSelectDrone }) {
+
+function Map({ drones, selectedDrone, onSelectDrone }) {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
   const markersRef = useRef({}); // store Mapbox markers by drone serial
@@ -29,7 +31,7 @@ function Map({ drones , selectedDrone, onSelectDrone }) {
     drones.forEach((drone) => {
       if (!drone.coordinates) return;
 
-      const { serial_no, name, pilot_name, org_name, status, coordinates } = drone;
+      const { serial_no, name, pilot_name, org_name, status, coordinates, altitude, yaw } = drone;
 
       // If marker exists, just update position
       if (markersRef.current[serial_no]) {
@@ -47,11 +49,27 @@ function Map({ drones , selectedDrone, onSelectDrone }) {
       `);
 
       // Create marker element
-      const el = document.createElement('img');
-      el.src = '/Icon/drone.svg';
-      el.className = `w-8 h-8 rounded-full ${
-        status === 'online' ? 'bg-green-500' : 'bg-red-500'
-      } p-1`;
+      const el = document.createElement("div");
+      el.className = `flex flex-col items-center h-auto w-16 cursor-pointer`;
+      el.style.cursor = "pointer";
+
+      el.innerHTML = `
+  <div class="rotate-target flex flex-col items-center">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+      class="w-4 h-4 ${status === "online" ? "text-success" : "text-error"}">
+      <path d="M12 2l7 14H5l7-14z" />
+    </svg>
+    <img 
+      src="/Icon/drone.svg" 
+      alt="Drone" 
+      class="w-8 h-8 rounded-full p-1 ${status === "online" ? "bg-success" : "bg-error"}" 
+    />
+  </div>
+`;
+
+      // Now rotate the inner div instead of `el`
+      el.querySelector(".rotate-target").style.transform = `rotate(${yaw}deg)`;
+
 
       el.onclick = () => {
         onSelectDrone(drone); // Notify parent of selection
