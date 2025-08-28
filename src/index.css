@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  font-display: swap;
+}
+
+
+
+html,
+body {
+  overflow-x: hidden !important;
+  scrollbar-width: none !important;
+ 
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+} 
+
+ input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+} 
+
+
+
+body::-webkit-scrollbar {
+  display: none !important;
+
+}
+
+.animate-levitate {
+  animation: levitate 12s ease-in-out infinite
+}
+
+@keyframes levitate {
+  0% {
+    transform: translateY(0)
+  }
+
+  30% {
+    transform: translateY(-20px)
+  }
+
+  50% {
+    transform: translateY(4px)
+  }
+
+  70% {
+    transform: translateY(-35px)
+  }
+
+  to {
+    transform: translateY(0)
+  }
+}
+
+@theme {
+
+  --color-primary: #0B0B0B;
+  --color-secondary: #111111;
+  --color-focus: #272727;
+  --color-accent: #FFFFFF;
+  --color-neutral: #748AA1;
+  --color-success: #00FF00;
+  --color-error: #FF0000;
+  --color-warning: #FFFF00;
+}
+
+.scroll-hide {
+  overflow: auto;             
+  scrollbar-width: none;      
+  -ms-overflow-style: none;    
+}
+
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
