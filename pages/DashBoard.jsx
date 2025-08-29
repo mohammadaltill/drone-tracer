@@ -9,9 +9,13 @@ function DashBoard() {
                 <Header />
                 <div className="flex flex-row w-full h-full">
                     <SideBar />
+                    <div className="flex flex-col w-full h-full">
+                        <h1 className='text-3xl font-bold underline'>This is DashBoard press on map button to see the drone map</h1>
+                    </div>
+
                 </div>
             </div>
-
+            
         </div>)
 }
 
