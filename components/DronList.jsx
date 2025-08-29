@@ -15,9 +15,9 @@ function DronList({ drones, selectedDrone, onSelectDrone }) {
 
   return (
     <div
-      className={`w-92 ${isOpen ? "h-[90%]" : "h-16"} 
-        bg-secondary z-[999] py-4 fixed flex flex-col
-        bottom-0 left-34 transition-all duration-300 ease-in-out overflow-y-auto scroll-hide`}
+      className={`md:w-92 w-full ${isOpen ? "h-[90%]" : "h-16"} 
+        bg-secondary z-[20] py-4 fixed flex flex-col
+        bottom-0 md:left-34 transition-all duration-300 ease-in-out overflow-y-auto scroll-hide`}
     >
       {/* header toggle */}
       <div

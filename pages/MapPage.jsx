@@ -48,9 +48,9 @@ function MapPage() {
 
   return (
     <div className="w-screen h-screen flex flex-col overflow-hidden">
-      <div className="flex flex-col w-full h-full container">
+      <div className="flex flex-col w-full h-full container ">
         <Header />
-        <div className="flex flex-row w-full h-full">
+        <div className="flex flex-col md:flex-row w-full h-full">
           <SideBar />
           <DronList
             drones={drones}

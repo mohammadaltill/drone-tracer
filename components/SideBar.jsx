@@ -9,7 +9,7 @@ const items = [
 
 function SideBar() {
     return (
-        <div className='min-h-screen w-32 bg-secondary'>
+        <div className='hidden md:flex min-h-screen w-32 bg-secondary'>
             <div className="flex flex-col w-full h-full">
                 <div className="flex flex-col w-full h-full">
                     {items.map((item, index) => (
